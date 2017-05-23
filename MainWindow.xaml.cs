@@ -23,7 +23,11 @@ namespace Calculator
             textBoxExpression.Text = args.Length != 0 ? string.Join(" ", args.SubArray(1, args.Length-1)) : "0";
             _checkExp = textBoxExpression.Text;    
 
-            
+            if(textBoxExpression.Text.Length > 0)
+            {
+                Analyzer.Expression = textBoxExpression.Text;
+                textBoxResult.Text = Analyzer.Estimate();
+            }
         }                
        
         private void btn_Click(object sender, RoutedEventArgs e)
